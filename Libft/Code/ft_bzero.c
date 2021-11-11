@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 18:05:03 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/10 16:20:50 by jdeclan          ###   ########.fr       */
+/*   Created: 2021/11/10 18:08:05 by jdeclan           #+#    #+#             */
+/*   Updated: 2021/11/10 18:22:24 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-	{
-		return (1);
-	}
-	return (0);
+	unsigned char	*kostil;
+	size_t			count;
+
+	count = 0;
+	kostil = s;
+	while (count < n)
+		kostil[count++] = '\0';
 }
