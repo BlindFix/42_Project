@@ -6,7 +6,7 @@
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 17:19:59 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/10 18:21:51 by jdeclan          ###   ########.fr       */
+/*   Updated: 2021/11/12 15:15:17 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	size_t			count;
 	unsigned char	*kostil;
 
-	kostil = (char *)b;
+	kostil = (unsigned char *)b;
 	count = 0;
 	while (count < len)
 		kostil[count++] = (unsigned char)c;
