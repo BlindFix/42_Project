@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 18:31:20 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/13 14:08:19 by jdeclan          ###   ########.fr       */
+/*   Created: 2021/11/13 11:06:49 by jdeclan           #+#    #+#             */
+/*   Updated: 2021/11/13 14:06:13 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t				count;
-	unsigned const char	*kostil_src;
-	unsigned char		*kostil_dst;
-
-	if (!dst && !src)
-		return (NULL);
-	count = 0;
-	kostil_src = src;
-	kostil_dst = dst;
-	while (count < n)
+	if (!n)
+		return (0);
+	while ((*s1 == *s2) && *s2)
 	{
-		kostil_dst[count] = kostil_src[count];
-		count++;
+		if (--n == 0)
+			return (0);
+		s1++;
+		s2++;
 	}
-	return (dst);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

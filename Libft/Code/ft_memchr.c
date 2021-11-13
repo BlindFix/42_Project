@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 18:31:20 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/13 14:08:19 by jdeclan          ###   ########.fr       */
+/*   Created: 2021/11/13 12:03:03 by jdeclan           #+#    #+#             */
+/*   Updated: 2021/11/13 13:36:16 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t				count;
-	unsigned const char	*kostil_src;
-	unsigned char		*kostil_dst;
+	const unsigned char	*str;
+	unsigned char		byte;
 
-	if (!dst && !src)
-		return (NULL);
-	count = 0;
-	kostil_src = src;
-	kostil_dst = dst;
-	while (count < n)
+	str = s;
+	byte = (unsigned char)c;
+	while (n > 0)
 	{
-		kostil_dst[count] = kostil_src[count];
-		count++;
+		if (*str == byte)
+			return ((void *)str);
+		str++;
+		n--;
 	}
-	return (dst);
+	return (NULL);
 }

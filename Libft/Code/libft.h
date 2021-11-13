@@ -6,7 +6,7 @@
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:13:17 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/13 03:49:25 by jdeclan          ###   ########.fr       */
+/*   Updated: 2021/11/13 12:03:43 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 
 #endif
