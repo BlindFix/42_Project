@@ -6,7 +6,7 @@
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 02:03:35 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/14 03:05:27 by jdeclan          ###   ########.fr       */
+/*   Updated: 2021/11/14 20:32:14 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*ft_strtrim(char const *str, char const *set)
 
 	if (!str)
 		return (NULL);
+	if (!set)
+		return ((char *)str);
 	i_left = 0;
 	i_right = ft_strlen(str);
 	while (str[i_left] && ft_instr(set, str[i_left]))

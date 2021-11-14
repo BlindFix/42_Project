@@ -6,7 +6,7 @@
 #    By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 16:17:10 by jdeclan           #+#    #+#              #
-#    Updated: 2021/11/14 16:29:09 by jdeclan          ###   ########.fr        #
+#    Updated: 2021/11/14 18:39:44 by jdeclan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,11 @@ LIST	= ft_isalpha.c		ft_isdigit.c		ft_isalnum.c\
 		ft_memcmp.c			ft_strnstr.c		ft_atoi.c\
 		ft_calloc.c			ft_strdup.c			ft_substr.c\
 		ft_strjoin.c		ft_strtrim.c		ft_split.c\
-		ft_itoa.c			# ft_strmapi.c		ft_putchar_fd.c\
-		# ft_putstr_fd.c	ft_putendl_fd.c		ft_putnbr_fd.c\
-		# ft_srtiteri.c
-
-BONUS =
+		ft_itoa.c			ft_strmapi.c		ft_putchar_fd.c\
+		ft_putstr_fd.c		ft_putendl_fd.c		ft_putnbr_fd.c\
+		ft_striteri.c
 
 OBJS = $(LIST:.c=.o)
-BONUS_OBJS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -42,15 +39,12 @@ $(NAME): $(OBJS) $(HEADER)
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus:
-	@make OBJS="$(BONUS_OBJS)" all
-
 clean:
-	@$(RM) $(OBJS) $(BONUS_OBJS)
+	@$(RM) $(OBJS)
 
 fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all re bonus clean fclean
+.PHONY: all re clean fclean
