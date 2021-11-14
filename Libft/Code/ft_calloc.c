@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 17:03:20 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/13 14:43:06 by jdeclan          ###   ########.fr       */
+/*   Created: 2021/11/13 23:54:54 by jdeclan           #+#    #+#             */
+/*   Updated: 2021/11/14 15:22:09 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	count;
+	void	*pt;
+	size_t	size_max;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	size_max = 18446744073709551615UL;
+	if (count && (size > size_max / count))
+		return (NULL);
+	pt = (void *)malloc(count * size);
+	if (!pt)
+		return (NULL);
+	ft_bzero(pt, count * size);
+	return (pt);
 }

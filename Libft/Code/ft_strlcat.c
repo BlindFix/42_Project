@@ -6,7 +6,7 @@
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 01:28:23 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/13 02:56:26 by jdeclan          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:28:12 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,29 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	count_dst;
-	size_t	count_src;
+	char		*dest;
+	const char	*sorc;
+	size_t		i;
+	size_t		len;
 
-	count_dst = 0;
-	count_src = 0;
-	if (!dstsize || (ft_strlen(dst) >= dstsize))
-		return (ft_strlen(dst) + ft_strlen(src));
-	while (dst[count_dst] && count_dst < dstsize - 1)
-		count_dst++;
-	while (src[count_src] && count_src + count_dst < dstsize - 1)
+	dest = dst;
+	sorc = src;
+	i = dstsize;
+	while (i-- != 0 && *dest != '\0')
+		dest++;
+	len = dest - dst;
+	i = dstsize - len;
+	if (i == 0)
+		return (len + ft_strlen(src));
+	while (*sorc != '\0')
 	{
-		dst[count_src + count_dst] = src[count_src];
-		count_src++;
+		if (i != 1)
+		{
+			*dest++ = *sorc;
+			i--;
+		}
+		sorc++;
 	}
-	dst[count_src + count_dst] = '\0';
-	return (ft_strlen(dst) + ft_strlen(src));
+	*dest = '\0';
+	return (len + (sorc - src));
 }
