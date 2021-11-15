@@ -33,11 +33,11 @@ OBJS = $(LIST:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER)
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $?
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	@$(RM) $(OBJS)
