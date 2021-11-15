@@ -6,7 +6,7 @@
 /*   By: jdeclan <jdeclan@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 03:11:45 by jdeclan           #+#    #+#             */
-/*   Updated: 2021/11/14 20:24:21 by jdeclan          ###   ########.fr       */
+/*   Updated: 2021/11/15 10:54:15 by jdeclan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*ft_get_word(char const *s, char c)
 	return (word);
 }
 
-static char	**ft_free(char	**s_arr)
+static char	**ft_free(char **s_arr)
 {
 	int	i;
 
@@ -36,6 +36,27 @@ static char	**ft_free(char	**s_arr)
 		free(s_arr[i++]);
 	free(s_arr);
 	return (NULL);
+}
+
+static char	**ft_free2(char **s_arr)
+{
+	char	**res;
+	int		c;
+
+	c = 0;
+	while (s_arr[c])
+		c++;
+	res = ft_calloc(sizeof(char *), c + 1);
+	if (!res)
+		return (NULL);
+	c = 0;
+	while (s_arr[c])
+	{
+		res[c] = s_arr[c];
+		c++;
+	}
+	free(s_arr);
+	return (res);
 }
 
 char	**ft_split(char const *s, char c)
@@ -64,5 +85,5 @@ char	**ft_split(char const *s, char c)
 		}
 		s++;
 	}
-	return (s_arr);
+	return (ft_free2(s_arr));
 }
