@@ -33,7 +33,7 @@ char	*ft_strtrim(char const *str, char const *set)
 	if (!str)
 		return (NULL);
 	if (!set)
-		return ((char *)str);
+		return (ft_strdup(str));
 	i_left = 0;
 	i_right = ft_strlen(str);
 	while (str[i_left] && ft_instr(set, str[i_left]))
